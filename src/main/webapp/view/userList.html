@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>Elmer I Fast build Admin dashboard for any platform</title>
+    <meta name="description" content="Elmer is a Dashboard & Admin Site Responsive Template by hencework."/>
+    <meta name="keywords"
+          content="admin, admin dashboard, admin template, cms, crm, Elmer Admin, Elmeradmin, premium admin templates, responsive admin, sass, panel, software, ui, dwh, web app, application"/>
+    <meta name="author" content="hencework"/>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Bootstrap Wysihtml5 css -->
+    <link rel="stylesheet" href="vendors/bower_components/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.css"/>
+
+    <!-- Data table CSS -->
+    <link href="vendors/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet"
+          type="text/css"/>
+
+    <!-- Custom CSS -->
+    <link href="dist/css/style.css" rel="stylesheet" type="text/css">
+    <!-- jQuery -->
+    <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
+</head>
+
+<body>
+<!--/Preloader-->
+<div class="wrapper   pimary-color-blue" style="min-height: 650px">
+    <!-- Main Content -->
+    <!-- Row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default card-view pa-0">
+                <div class="panel-wrapper collapse in">
+                    <div class="panel-body pa-0">
+                        <div class="contact-list">
+                            <div class="row" >
+                               <!-- <aside class="col-xs-1">
+                                </aside>-->
+                                <aside class="col-xs-1 col-md-1">
+                                </aside>
+
+                                <aside class="col-lg-10 col-md-8 pl-0">
+                                    <div class="panel pa-0">
+                                        <div class="panel-wrapper collapse in">
+                                            <div class="panel-body  pa-0">
+                                                <div class="table-responsive mb-30">
+                                                    <table id="datable_1" class="table  display table-hover mb-30"
+                                                           data-page-size="10">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>编号</th>
+                                                            <th>姓名</th>
+                                                            <th>Email</th>
+                                                            <th>电话</th>
+                                                            <th>创建时间</th>
+                                                            <th>修改时间</th>
+                                                            <th>操作</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        </tbody>
+                                                        <aside class="col-lg-2 col-md-4 pr-0">
+                                                            <div class="mt-20 mb-20 ml-15 mr-15">
+                                                                <a href="#myModal" data-toggle="modal" title="Compose"
+                                                                   class="btn btn-success btn-block">
+                                                                    添加用户
+                                                                </a>
+                                                                <!-- Modal -->
+                                                                <div aria-hidden="true" role="dialog" tabindex="-1" id="myModal"
+                                                                     class="modal fade" style="display: none;">
+                                                                    <div class="modal-dialog">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                                        aria-hidden="true">×
+                                                                                </button>
+                                                                                <h4 class="modal-title" >添加用户</h4>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <form class="form-horizontal form-material" >
+                                                                                    <div class="form-group">
+                                                                                        <div class="col-md-12 mb-20">
+                                                                                            <input type="text" class="form-control"
+                                                                                                   placeholder="请输入用户名" id="addName" name="username">
+                                                                                        </div>
+                                                                                        <div class="col-md-12 mb-20">
+                                                                                            <input type="password" class="form-control"
+                                                                                                   placeholder="请输入密码" id="addPwd" name="password">
+                                                                                        </div>
+                                                                                        <div class="col-md-12 mb-20">
+                                                                                            <input type="password" class="form-control"
+                                                                                                   placeholder="请确认密码" id="addPwd2" >
+                                                                                        </div>
+                                                                                        <div class="col-md-12 mb-20">
+                                                                                            <input type="text" class="form-control"
+                                                                                                   placeholder="请填写邮箱" id="addEmail" name="email">
+                                                                                        </div>
+                                                                                        <div class="col-md-12 mb-20">
+                                                                                            <input type="text" class="form-control"
+                                                                                                   placeholder="请填写手机号码" id="addPhone" name="phone">
+                                                                                        </div>
+                                                                                       <!-- <div class="form-group">
+                                                                                            <span id="errMsg"></span>
+                                                                                        </div>-->
+
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-info waves-effect"
+                                                                                        data-dismiss="modal" onclick="save()">保存
+                                                                                </button>
+                                                                                <button type="button" class="btn btn-default waves-effect"
+                                                                                        data-dismiss="modal" >取消
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- /.modal-content -->
+                                                                    </div>
+                                                                    <!-- /.modal-dialog -->
+                                                                </div>
+                                                                <!-- /.modal -->
+                                                            </div>
+
+                                                        </aside>
+                                                    </table>
+													<!--
+													   分页插件
+													 -->
+													<nav>
+														<ul class="pagination">
+															<li>
+																<a href="#" aria-label="Previous" onclick="left()">
+																	<span aria-hidden="true">&laquo;</span>
+																</a>
+															</li>
+															<li>
+																<a href="#" aria-label="Next" onclick="right()">
+																	<span aria-hidden="true">&raquo;</span>
+																</a>
+															</li>
+														</ul>
+													</nav>
+													<!-- 分页插件结束 -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </aside>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Row -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- JavaScript -->
+
+<!-- jQuery -->
+<script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- wysuhtml5 Plugin JavaScript -->
+<script src="vendors/bower_components/wysihtml5x/dist/wysihtml5x.min.js"></script>
+
+<script src="vendors/bower_components/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.all.js"></script>
+
+<!-- Fancy Dropdown JS -->
+<script src="dist/js/dropdown-bootstrap-extended.js"></script>
+
+<!-- Bootstrap Wysuhtml5 Init JavaScript -->
+<script src="dist/js/bootstrap-wysuhtml5-data.js"></script>
+
+<!-- Data table JavaScript -->
+<!--<script src="vendors/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+<script src="dist/js/dataTables-data.js"></script>-->
+
+<!-- Slimscroll JavaScript -->
+<script src="dist/js/jquery.slimscroll.js"></script>
+
+<!-- Owl JavaScript -->
+<script src="vendors/bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
+
+<!-- Switchery JavaScript -->
+<script src="vendors/bower_components/switchery/dist/switchery.min.js"></script>
+
+<!-- Init JavaScript -->
+<script src="dist/js/init.js"></script>
+
+</body>
+<script>
+        $(function(){
+            //页面加载查询第一页数据
+            findByPage(1);
+        })
+
+		function findByPage(pageNum) {
+            //$("tbody").clear();
+           // $("tr:gt(1)").remove();
+            $("tbody tr").remove();
+			$("li[name='myli']").remove();
+
+			$.post("/dwh/user/list.do", "pageNum="+pageNum+"&pageSize=10", function (data) {
+                console.log(data)
+				var list = data.data.list;
+				for (var i = 0; i < list.length; i++) {
+					var $tr = $("<tr>\n" +
+							"<td>" + list[i].id + "</td>\n" +
+							"<td><a href=\"#\">" + list[i].username + "</a></td>\n" +
+							"<td>" + list[i].email + "</td>\n" +
+							"<td>" + list[i].phone + "</td>\n" +
+							"<td>" + list[i].createTime + "</td>\n" +
+							"<td>" + list[i].updateTime + "</td>\n" +
+							"<td><a href='javascript:void(0)' class='text-inverse pr-10' title='Edit' data-toggle='tooltip'><i class=\"zmdi zmdi-edit txt-warning\"></i></a><a href='javascript:void(0)' class='text-inverse' title='Delete' data-toggle='tooltip' onclick='delById(this,"+list[i].id+")'><i class='zmdi zmdi-delete txt-danger'></i></a></td>\n" +
+							"</tr>");
+					$("tbody").append($tr);
+				}
+
+				//2.动态展示总页码
+				//data.totalPage 获取到总页码,然后循环创 li  <li><a href="#">5</a></li>
+				for (var i = 0; i < data.data.pages; i++) {
+					var $li = $("<li  name='myli'><a href='#' onclick='findByPage(" + (i + 1) + ")'>" + (i + 1) + "</a></li>");
+					//把创建的$li添加到左右li之间
+					//获取最后的li,给最后的li之前插入我们创建的li
+					$("li:last").before($li);
+					//3.当前页添加背景色
+					//循环出来的值==data.currentPage 得到当前页
+					if (data.data.pageNum == (i + 1)) {
+						$li.prop("class", "active");
+					}
+				}
+			}, "json")
+		}
+
+	//点击向左
+	function left(){
+		/**
+		 * 1.获取当前页码
+		 * 2.判断当前页是否为1,如果为1,return;
+		 * 3.findByPage(当前页-1)
+		 */
+
+		//1.获取当前页码
+		var currentPage = $("li[class='active']:last").text();
+		// 2.判断当前页是否为1,如果为1,return;
+		if(currentPage ==1){
+			return;
+		}
+		// 3.findByPage(当前页-1)
+		findByPage(currentPage-1);
+
+	}
+
+	//点击向右
+	function right(){
+		//1.获取当前页码
+		var currentPage = $("li[class='active']:last").text();
+		//2.获取最后一页=总页码
+		var lastPage = $("li").length - 2;
+
+		//3.当前页是否为最后一页
+		if(currentPage == lastPage){
+			return;
+		}
+		//4.如果不是最后一页
+		findByPage(parseInt(currentPage)+1);
+
+	}
+
+
+        function delById(t,id){
+            /**
+             * 1.发送ajax请求
+             * 2.编写回调函数 (未完待续)
+             */
+            var flag = window.confirm("是否确认删除");
+            if(!flag){
+                return;
+            }
+            $.get("/dwh/user/deleteUser.do","id="+id,function(data){
+
+                if(data.status==0){
+                    $(t).parent().parent().remove();
+                }
+            },"json")
+        }
+
+        function save(){
+           var name =  $("#addName").val();
+           var pwd = $("#addPwd").val();
+           var pwd2 = $("#addPwd2").val();
+           var email = $("#addEmail").val();
+           var phone = $("#addPhone").val();
+
+           if(pwd != pwd2){
+                $("#errMsg").html("两次密码不一致")
+           }
+
+           $.post("/dwh/user/add.do",{"username":name,"password":pwd,"email":email,"phone":phone},function(data){
+               if(data.status == 0){
+                   alert("添加成功");
+                   location.reload();
+               }else{
+                   alert("添加失败 "+data.msg)
+               }
+           })
+
+        }
+</script>
+</html>

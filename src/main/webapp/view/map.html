@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>Elmer I Fast build Admin dashboard for any platform</title>
+	<meta name="description" content="Elmer is a Dashboard & Admin Site Responsive Template by hencework." />
+	<meta name="keywords" content="admin, admin dashboard, admin template, cms, crm, Elmer Admin, Elmeradmin, premium admin templates, responsive admin, sass, panel, software, ui, dwh, web app, application" />
+	<meta name="author" content="hencework"/>
+	
+	<!-- Favicon -->
+	<!-- Custom CSS -->
+	<link href="dist/css/style.css" rel="stylesheet" type="text/css">
+	<script src="dist/js/echarts.min.js"></script>
+	<script src="dist/js/china.js"></script>
+
+	
+</head>
+<body>
+
+	<!--/Preloader-->
+    <!--<div class="wrapper  theme-1-active pimary-color-blue" >
+		&lt;!&ndash; Main Content &ndash;&gt;
+						<div class="panel panel-default card-view">
+							<div class="panel-heading">
+								<div class="pull-left">
+									<h6 class="panel-title txt-dark">line Chart</h6>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="panel-wrapper collapse in">
+								<div class="panel-body" id="app">
+									&lt;!&ndash;<canvas id="chart_1" height="100"></canvas>&ndash;&gt;
+								</div>
+							</div>
+						</div>
+		&lt;!&ndash; /Main Content &ndash;&gt;
+    </div>-->
+	<div id="app">
+	</div>
+
+	<script>
+		//1.关联容器对象
+		var chart = echarts.init(document.getElementById("app"));
+		//2. ES6 fetch 发送ajax请求
+		fetch("/dwh/dist/json/dataMap.json")
+				.then(resp => resp.json()) //将我们的流数据转成json
+				.then(resp => {
+					var getListByCountryTypeService1 =  resp.getListByCountryTypeService1;
+					//准备一个容器,保存数据
+					var filterData = [];
+					//循环getListByCountryTypeService1  json的数组
+					getListByCountryTypeService1.forEach(element => {
+						filterData.push({
+							name : element.provinceShortName,  //设置省份的缩写
+							value : element.confirmedCount,    //设置确诊人数
+							deadCount : element.deadCount,     //设置死亡人数
+							curedCount : element.curedCount
+						})
+					});
+
+					//给图表设置数据
+					chart.setOption({
+						//设置标题
+						title : {
+							text : "中国疫情统计图",
+							left : "center",
+							top  : 10
+						},
+						//设置背景颜色
+						backgroundColor : "#f7f7f7",
+						//设置数据映射元素
+						visualMap : [{
+							type : "piecewise", //设置展示图像为分段
+							pieces : [
+								{gt : 10000},  //设置大于10000人数
+								{gt :1000 , lte: 9999}, //设置人数1000-9999
+								{gt : 100 , lte : 999} ,
+								{gt : 10 , lte : 99},
+								{gt : 0 , lte : 9}
+							],
+							inRange : {
+								color : ['#fdebcf', '#f59e83' , '#e55e4e' , '#cb2a2f','#811c24']
+							}
+
+						}],
+						//设置提示框
+						tooltip : {
+							//设置样式,function是一个回调函数
+							formatter : function(params){
+								//设置内容以返回值的方式设置
+								return `地区: ${params.name} <br/> 确认 : ${params.value}人 <br/> 治愈
+                       ${params.data.curedCount} 人 <br/>  死亡 : ${params.data.deadCount} 人 <br/>`
+							}
+						},
+						//设置数据
+						series : [{
+							type : 'map' , //设置图表类型为map
+							map : 'china' ,
+							label : {
+								//覆盖设置
+								show : true
+							},
+							data : filterData
+						}]
+					})
+				})
+	</script>
+</body>
+
+</html>

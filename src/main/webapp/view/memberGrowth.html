@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>Elmer I Fast build Admin dashboard for any platform</title>
+	<meta name="description" content="Elmer is a Dashboard & Admin Site Responsive Template by hencework." />
+	<meta name="keywords" content="admin, admin dashboard, admin template, cms, crm, Elmer Admin, Elmeradmin, premium admin templates, responsive admin, sass, panel, software, ui, visualization, web app, application" />
+	<meta name="author" content="hencework"/>
+	
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	
+	<!-- Custom CSS -->
+	<link href="dist/css/style.css" rel="stylesheet" type="text/css">
+	<script src="vendors/bower_components/echarts/dist/echarts-en.min.js"></script>
+	
+</head>
+<body>
+
+	<!--/Preloader-->
+    <div class="wrapper  theme-1-active pimary-color-blue">
+		<!-- Main Content -->
+				<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default card-view">
+					<div class="panel-heading">
+						<div class="pull-left">
+							<h6 class="panel-title txt-dark">会员信息统计</h6>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="panel-wrapper collapse in">
+						<div class="panel-body">
+						<!--	<canvas id="chart_1" height="100"></canvas>-->
+							<div id="main1" style="height: 325px"></div>
+							<div id="main2" style="height: 325px"></div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+    <!-- /#wrapper -->
+	
+	<!-- JavaScript -->
+	
+    <!-- jQuery -->
+    <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	
+	<!-- ChartJS JavaScript -->
+	<script src="vendors/chart.js/Chart.min.js"></script>
+	<script src="dist/js/chartjs-data.js"></script>
+	
+	<!-- Slimscroll JavaScript -->
+	<script src="dist/js/jquery.slimscroll.js"></script>
+	
+	<!-- Fancy Dropdown JS -->
+	<script src="dist/js/dropdown-bootstrap-extended.js"></script>	
+	
+	<!-- Owl JavaScript -->
+	<script src="vendors/bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
+	
+	<!-- Switchery JavaScript -->
+	<script src="vendors/bower_components/switchery/dist/switchery.min.js"></script>
+	
+	<!-- Init JavaScript -->
+	<script src="dist/js/init.js"></script>
+
+	<script>
+		var myChart1 = echarts.init(document.getElementById('main1'));
+		$.post("/dwh/member/memberGrowth.do",function(data){
+			myChart1.setOption({
+				xAxis: {
+					type: 'category',
+					data: data.data.xData
+				},
+				title : {
+					text: "统计7天会员增长"
+				},
+				tooltip : {
+					trigger : 'item',
+					show: true // 必须引入 tooltip 组件
+				},
+				yAxis: {
+					type: 'value'
+				},
+				series: [{
+					data: data.data.seriesData,
+					type: 'line'
+				}]
+			})
+		})
+
+
+	</script>
+	<script>
+			var myChart2 = echarts.init(document.getElementById('main2'));
+			$.post("/dwh/member/memberActive.do",function(data){
+				//3.ajax的回调函数中设置option
+				myChart2.setOption({
+					xAxis: {
+						type: 'category',
+						data: data.data.xData
+					},
+					title : {
+						text: "统计7天活跃会员"
+					},
+					tooltip : {
+						trigger : 'item',
+						show: true  // 必须引入 tooltip 组件
+
+					},
+					yAxis: {
+						type: 'value'
+					},
+					series: [{
+						data: data.data.seriesData,
+						type: 'bar',
+						showBackground: true,
+						backgroundStyle: {
+							color: 'rgba(220, 220, 220, 0.8)'
+						}
+					}]
+				});
+			},"json")
+	</script>
+</body>
+
+</html>
