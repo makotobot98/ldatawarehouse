@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.ucidw.mapper.MemberMapper">
+
+<select id="selectMembers" resultType="MemberVo" >
+    SELECT dt,cnt  FROM member_new_cnt ORDER BY dt ASC LIMIT 7;
+</select>
+
+
+<select id="selectActiveMembers" resultType="MemberVo" >
+    SELECT dt,day_count  FROM member_active_count ORDER BY dt ASC LIMIT 7;
+</select>
+
+</mapper>

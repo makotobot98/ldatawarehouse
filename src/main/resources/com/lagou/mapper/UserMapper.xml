@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.ucidw.mapper.UserMapper">
+<!--转入-->
+
+<resultMap id="resultMap" type="com.ucidw.model.User" >
+    <constructor >
+        <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+        <arg column="username" jdbcType="VARCHAR" javaType="java.lang.String" />
+        <arg column="password" jdbcType="VARCHAR" javaType="java.lang.String" />
+        <arg column="email" jdbcType="VARCHAR" javaType="java.lang.String" />
+        <arg column="phone" jdbcType="VARCHAR" javaType="java.lang.String" />
+        <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+        <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+</resultMap>
+
+<sql id="field" >
+    id, username, password, email, phone, create_time, update_time
+  </sql>
+
+<select id="checkUsername" resultType="int" parameterType="string" >
+    select count(1) from user
+    where username = #{username}
+</select>
+
+<select id="selectLogin" resultMap="resultMap" parameterType="map">
+     SELECT
+     <include refid="field" />
+     from user
+     where username = #{username}
+     and password = #{password}
+    </select>
+
+
+<insert id="insert" parameterType="user" >
+    insert into user (id, username, password,
+      email, phone, create_time,
+      update_time)
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+      #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, now(),now())
+</insert>
+
+    <select id="checkEmail" resultType="int" parameterType="string" >
+    select count(1) from user
+    where email = #{email}
+  </select>
+
+<select id="userList" resultType="user" >
+  select
+  <include refid="field" />
+  from user order by id asc
+</select>
+
+    <select id="selectByPrimaryKey" resultType="com.ucidw.model.User">
+        select  <include refid="field" />
+        from user where id = #{id}
+    </select>
+
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+        delete from user
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+
+<!--<insert id="insert" parameterType="com.ucidw.model.User" >
+    insert into user (id, username, password,
+      email, phone, question,
+      answer, role, create_time,
+      update_time)
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+      #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{question,jdbcType=VARCHAR},
+      #{answer,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER}, now(),
+      now())
+  </insert>-->
+
+
+
+<!--<update id="updateByPrimaryKey" parameterType="com.ucidw.model.User" >
+    update user
+    set username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      question = #{question,jdbcType=VARCHAR},
+      answer = #{answer,jdbcType=VARCHAR},
+      role = #{role,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = now()
+    where id = #{id,jdbcType=INTEGER}
+  </update>-->
+
+
+
+</mapper>

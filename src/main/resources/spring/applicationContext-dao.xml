@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--
+            applicationContext-dao.xml
+            1)引入db.properties
+            2)配置连接池dataSource
+            3)配置SqlSessionFactoryBean  配置会话工厂
+                注入连接池
+                加载SqlMapConfig.xml
+                配置别名
+            4)MapperScannerConfguiar     mapper的扫描器 (扫描接口创建接口的代理对象; 扫描映射文件加载映射文件)
+    -->
+
+    <!--1)引入db.properties-->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+    <!--2)配置连接池dataSource
+        DriverManagerDataSource
+        Druid  阿里巴巴提供的连接池
+    -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <!--
+        3)配置SqlSessionFactoryBean  配置会话工厂
+                注入连接池
+                加载SqlMapConfig.xml
+                配置别名
+    -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--注入连接池-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--加载SqlMapConfig.xml-->
+        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>
+        <!--配置别名-->
+        <property name="typeAliasesPackage" value="com.ucidw.pojo"/>
+    </bean>
+
+    <!--
+         4)MapperScannerConfigurer     mapper的扫描器 (扫描接口创建接口的代理对象; 扫描映射文件加载映射文件)
+         <context:component-scan base-package="com.ucidw.mapper"/> 不需要
+    -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.ucidw.mapper"/>
+    </bean>
+</beans>
