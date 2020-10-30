@@ -17,7 +17,7 @@ $(document).ready(function(){
 $(window).load(function(){
 	window.setTimeout(function(){
 		$.toast({
-			heading: '欢迎来到拉勾大数据3',
+			heading: 'hello ucidw 3',
 			text: 'Use the predefined ones, or specify a custom position object.',
 			position: 'bottom-left',
 			loaderBg:'#f8b32d',
