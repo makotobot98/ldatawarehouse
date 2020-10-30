@@ -17,7 +17,7 @@ $(document).ready(function(){
 $(window).load(function(){
 	window.setTimeout(function(){
 		$.toast({
-			heading: '欢迎来到拉勾大数据1',
+			heading: 'ucidw hello1',
 			text: '使用预定义的对象，或指定自定义位置对象',
 			position: 'bottom-left',
 			loaderBg:'#f8b32d',
