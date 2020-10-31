@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/ad")
+@RequestMapping("/dwh/ad")
 public class AdController {
 
     @Autowired

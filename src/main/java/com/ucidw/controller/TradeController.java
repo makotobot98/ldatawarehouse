@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-@RequestMapping("/trade")
+@RequestMapping("/dwh/trade")
 public class TradeController {
 
     @Autowired

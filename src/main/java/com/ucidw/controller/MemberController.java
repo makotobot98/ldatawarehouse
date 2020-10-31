@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/member")
+@RequestMapping("/dwh/member")
 public class MemberController {
 
     @Autowired
