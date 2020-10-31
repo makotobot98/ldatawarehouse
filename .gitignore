@@ -3,3 +3,5 @@ target/
 *.iml
 *.properties
 src/resources/*.properties
+*.DS_Store
+
