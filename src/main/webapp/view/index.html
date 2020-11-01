@@ -35,7 +35,7 @@
 			<div class="nav-header pull-left">
 				<div class="logo-wrap">
 					<a href="index.html">
-						<img class="brand-img" src="dist/img/logo.png" alt="brand"/>
+						<img class="brand-img" src="dist/img/logo2.png" alt="brand"/>
 						<span class="brand-text">ucidw</span>
 					</a>
 				</div>
@@ -58,14 +58,14 @@
 					<a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="dist/img/user1.png" alt="user_auth" class="user-auth-img img-circle"/><span class="user-online-status"></span></a>
 					<ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
 						<li>
-							<a href="profile.html"><i class="zmdi zmdi-account"></i><span>个人资料</span></a>
+							<a href="profile.html"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
 						</li>
 						<li>
-							<a href="#"><i class="zmdi zmdi-settings"></i><span>设置</span></a>
+							<a href="#"><i class="zmdi zmdi-settings"></i><span>Settings</span></a>
 						</li>
 
 						<li>
-							<a href="#" onclick="logout()"><i class="zmdi zmdi-power"></i><span>退出</span></a>
+							<a href="#" onclick="logout()"><i class="zmdi zmdi-power"></i><span>Exit</span></a>
 						</li>
 					</ul>
 				</li>
@@ -84,7 +84,7 @@
 			<li>
 				<a class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr">
 					<div class="pull-left">
-						<i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">用户信息</span>
+						<i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">User Profile</span>
 					</div>
 					<div class="pull-right"><i class="zmdi zmdi-caret-down"></i>
 					</div>
@@ -92,48 +92,48 @@
 				</a>
 				<ul id="dashboard_dr" class="collapse collapse-level-1">
 					<li>
-						<a class="active-page" href="#" onclick="pieStatistics('userList')">员工信息</a>
+						<a class="active-page" href="#" onclick="pieStatistics('userList')">Employee Profile</a>
 
 					</li>
 
 					<li>
-						<a href="profile.html">修改密码</a>
+						<a href="profile.html">Change Password</a>
 					</li>
 				</ul>
 			</li>
 			<li>
-				<a href="javascript:void(0);" data-toggle="collapse" data-target="#ecom_dr"><div class="pull-left"><i class="zmdi zmdi-shopping-basket mr-20"></i><span class="right-nav-text">会员信息统计</span></div><div class="pull-right"><span class="label label-primary">hot</span></div><div class="clearfix"></div></a>
+				<a href="javascript:void(0);" data-toggle="collapse" data-target="#ecom_dr"><div class="pull-left"><i class="zmdi zmdi-shopping-basket mr-20"></i><span class="right-nav-text">User Analysis</span></div><div class="pull-right"><span class="label label-primary">hot</span></div><div class="clearfix"></div></a>
 				<ul id="ecom_dr" class="collapse collapse-level-1">
 					<li>
-						<a href="javascript:void(0);" onclick="pieStatistics('memberGrowth')"  >会员增长统计</a>
+						<a href="javascript:void(0);" onclick="pieStatistics('memberGrowth')"  >New User Growth Stats</a>
 					</li>
 					<li>
-						<a href="javascript:void(0);" onclick="pieStatistics('404')" >会员留存率统计</a>
+						<a href="javascript:void(0);" onclick="pieStatistics('memberActive')" >Active User Stats</a>
 					</li>
 					<li>
-						<a href="javascript:void(0);" onclick="pieStatistics('404')"  name="login">会员活跃度统计</a>
+						<a href="javascript:void(0);" onclick="pieStatistics('404')"  name="login">User Retention Stats</a>
 					</li>
 				</ul>
 			</li>
 			<li>
-				<a href="javascript:void(0);" data-toggle="collapse" data-target="#app_dr"><div class="pull-left"><i class="zmdi zmdi-apps mr-20"></i><span class="right-nav-text">广告信息统计</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+				<a href="javascript:void(0);" data-toggle="collapse" data-target="#app_dr"><div class="pull-left"><i class="zmdi zmdi-apps mr-20"></i><span class="right-nav-text">Ad Analysis</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
 				<ul id="app_dr" class="collapse collapse-level-1">
 					<li>
-						<a href="javascript:void(0);"  onclick="pieStatistics('ad')">广告点击详情</a>
+						<a href="javascript:void(0);"  onclick="pieStatistics('ad')">Ad Click Stats</a>
 					</li>
 					<li>
-						<a href="javascript:void(0);" >广告效果分析</a>
+						<a href="javascript:void(0);" >Ad Effect Stats</a>
 					</li>
 				</ul>
 			</li>
 			<li>
-				<a href="javascript:void(0);" data-toggle="collapse" data-target="#contact_dr"><div class="pull-left"><i class="zmdi zmdi-apps mr-20"></i><span class="right-nav-text">交易信息统计</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+				<a href="javascript:void(0);" data-toggle="collapse" data-target="#contact_dr"><div class="pull-left"><i class="zmdi zmdi-apps mr-20"></i><span class="right-nav-text">Trade Analysis</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
 				<ul id="contact_dr" class="collapse collapse-level-1">
 					<li>
-						<a href="javascript:void(0);"  onclick="pieStatistics('trade')">一级商品与二级商品比对</a>
+						<a href="javascript:void(0);"  onclick="pieStatistics('trade')">Category Level 1 and Level 2</a>
 					</li>
 					<li>
-						<a href="javascript:void(0);" onclick="pieStatistics('404')">订单数据分析</a>
+						<a href="javascript:void(0);" onclick="pieStatistics('404')">Order Analysis</a>
 					</li>
 				</ul>
 			</li>
@@ -143,7 +143,7 @@
 	<div class="page-wrapper">
 		<div class="container-fluid pt-25">
 			<!--page start-->
-			<iframe  width="100%" style="min-height: 800px" id="if"  src="/dwh/view/userList.html" frameborder="0" scrolling="no" >
+			<iframe  width="100%" style="min-height: 800px" id="if"  src="/view/userList.html" frameborder="0" scrolling="no" >
 			</iframe>
 			<!--page end-->
 		</div>
