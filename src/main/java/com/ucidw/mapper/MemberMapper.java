@@ -8,4 +8,6 @@ public interface MemberMapper {
     List<MemberVo> selectMembers();
 
     List<MemberVo> selectActiveMembers();
+
+    List<MemberVo> selectRetentiveMembers();
 }

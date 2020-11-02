@@ -30,7 +30,7 @@ public class MemberController {
     @RequestMapping(value = "memberGrowth.do", method = RequestMethod.POST)
     @ResponseBody
     public ServerResponse<Map<String,Object>> countGrowMember() {
-        ServerResponse<Map<String,Object>> response = iMemberService.countMemeberGrowth();
+        ServerResponse<Map<String,Object>> response = iMemberService.countMemberGrowth();
         return response;
     }
 
@@ -40,7 +40,17 @@ public class MemberController {
     @RequestMapping(value = "memberActive.do", method = RequestMethod.POST)
     @ResponseBody
     public ServerResponse<Map<String,Object>> countActiveMember() {
-        ServerResponse<Map<String,Object>> response = iMemberService.countMemeberActive();
+        ServerResponse<Map<String,Object>> response = iMemberService.countMemberActive();
+        return response;
+    }
+
+    /**
+     * 3.本周用户留存数
+     */
+    @RequestMapping(value = "memberRentention.do", method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse<Map<String,Object>> countActiveRetention() {
+        ServerResponse<Map<String,Object>> response = iMemberService.countMemberRetention();
         return response;
     }
 }

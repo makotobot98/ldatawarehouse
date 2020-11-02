@@ -12,4 +12,8 @@
     SELECT dt,day_count  FROM member_active_count ORDER BY dt ASC LIMIT 7;
 </select>
 
+<select id="selectRetentiveMembers" resultType="MemberVo" >
+    SELECT dt,retention_count,new_mid_count  FROM member_retention_rate ORDER BY dt ASC LIMIT 7;
+</select>
+
 </mapper>

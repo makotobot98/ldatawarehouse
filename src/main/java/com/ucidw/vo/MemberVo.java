@@ -15,7 +15,7 @@ public class MemberVo {
     private String cnt;            //新增会员数
     private String addDate;         // '新增日期',
     private int retentionDay;      //'截止当前日期留存天数',
-    private int retentionCount;    //  '留存数',
-    private int newMidCount;       // '当日会员新增数',
+    private String retentionCount;    //  '留存数',
+    private String newMidCount;       // '当日会员新增数',
     private String retentionRatio;  // '留存率',
 }
