@@ -11,4 +11,5 @@ public interface AdMapper {
 
 
     List<AdVo> countAdData();
+    List<AdVo> countAdAction();
 }

@@ -31,4 +31,11 @@ public class AdController {
         ServerResponse<List<AdVo>> response = iAdService.countAdData();
         return response;
     }
+
+    @RequestMapping(value = "adAction.do", method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse<Map<String, Object>> countAdAction() {
+        ServerResponse<Map<String, Object>> response = iAdService.countAdAction();
+        return response;
+    }
 }

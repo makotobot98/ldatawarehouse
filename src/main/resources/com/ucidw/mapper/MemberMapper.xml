@@ -7,7 +7,6 @@
     SELECT dt,cnt  FROM member_new_cnt ORDER BY dt ASC LIMIT 7;
 </select>
 
-
 <select id="selectActiveMembers" resultType="MemberVo" >
     SELECT dt,day_count  FROM member_active_count ORDER BY dt ASC LIMIT 7;
 </select>

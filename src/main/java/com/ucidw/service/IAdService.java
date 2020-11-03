@@ -14,4 +14,5 @@ public interface IAdService {
      * @return
      */
     ServerResponse<List<AdVo>> countAdData();
+    ServerResponse<Map<String, Object>> countAdAction();
 }

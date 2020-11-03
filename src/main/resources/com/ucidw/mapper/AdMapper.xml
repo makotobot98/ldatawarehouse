@@ -19,4 +19,21 @@
             GROUP BY dt, HOUR
             ORDER BY HOUR;
     </select>
+
+    <select id="countAdAction" resultType="AdVo">
+        SELECT dt, HOUR,
+           SUM(CASE WHEN ad_action = 0
+                THEN cnt
+           END) AS exposure,
+           SUM(CASE WHEN ad_action = 1
+                THEN cnt
+           END) AS cnt,
+           SUM(CASE WHEN ad_action = 2
+                THEN cnt
+           END) AS buyCount
+            FROM dwshow.ad_show
+            WHERE dt = '2020-07-21'
+            GROUP BY dt, HOUR
+            ORDER BY HOUR;
+    </select>
 </mapper>

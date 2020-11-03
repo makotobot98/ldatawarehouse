@@ -28,11 +28,11 @@ public class AdServiceImpl implements IAdService {
         //小时
         List<String> hourList = new ArrayList<String>();
         //曝光量
-        List<Long> exposureList = new ArrayList<Long>();
+        List<String> exposureList = new ArrayList<String>();
         //点击量
-        List<Long> cntList = new ArrayList<Long>();
+        List<String> cntList = new ArrayList<String>();
         //购买量
-        List<Long> buyList = new ArrayList<Long>();
+        List<String> buyList = new ArrayList<String>();
 
 
         List<AdVo> list = mapper.countAdData();
@@ -43,5 +43,30 @@ public class AdServiceImpl implements IAdService {
             buyList.add(me.getBuyCount());
         }
         return  ServerResponse.createBySuccess(list);
+    }
+
+    @Override
+    public ServerResponse<Map<String, Object>> countAdAction() {
+        Map<String,Object> map = new HashMap<String, Object>(); //json map object
+        //exposure
+        List<String> exposureList = new ArrayList<>();
+        //click
+        List<String> clickList = new ArrayList<>();
+        //click and purchase
+        List<String> purchaseList = new ArrayList<>();
+        List<AdVo> ls = mapper.countAdAction();
+
+        for (AdVo record : ls) {
+            //record: (dt = 2020-07-21, hr = 1, cnt(for click) = 9800, exposure(for exposure) = 20000, buyCount(for purchase) = 2000)
+            clickList.add(record.getCnt());
+            exposureList.add(record.getExposure());
+            purchaseList.add(record.getBuyCount());
+        }
+
+        map.put("exposureCountData", exposureList);
+        map.put("clickCountData", clickList);
+        map.put("purchaseCountData", purchaseList);
+
+        return ServerResponse.createBySuccess(map);
     }
 }
