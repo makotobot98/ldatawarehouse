@@ -4,7 +4,11 @@
 <mapper namespace="com.ucidw.mapper.TradeMapper">
    <!-- #一级商品和二级商品   订单总数    购买商品总数    支付金额总数-->
     <select id="tradeData" resultType="TradeOrderVo" >
-        SELECT categorytype , SUM(totalcount) totalcount , SUM(total_productnum)  total_productnum,  SUM(ROUND(totalmoney,2))  totalmoney
-        FROM dwshow.trade_order_analysis GROUP BY categorytype
+        <!-- SELECT dt, areatype, cityname, categorytype , SUM(totalcount) totalcount , SUM(total_productnum)  total_productnum,  SUM(ROUND(totalmoney,2))  totalmoney
+        FROM dwshow.trade_order_analysis GROUP BY categorytype -->
+        SELECT cityname, SUM(totalcount) totalcount
+        FROM dwshow.trade_order_analysis
+        where dt = "2020-07-21"
+        GROUP BY cityname
     </select>
 </mapper>

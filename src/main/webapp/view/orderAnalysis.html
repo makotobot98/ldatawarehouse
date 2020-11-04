@@ -267,12 +267,28 @@
         "大庆":[125.03,46.58]
     };
 
-    var convertData = function (cities, counts) {
+    /*var convertData = function (cities, counts) {
         var res = [];
         for (var i = 0; i < cities.length; i++) {
+            console.log("cities" + cites[i]);
+            console.log("total counts" + counts[i]);
             var geoCoord = geoCoordMap[cities[i]];
             if (geoCoord) {
                 res.push(geoCoord.concat(counts[i]));
+            }
+        }
+        return res;
+    };*/
+
+    var convertData = function (data1, data2) {
+        var res = [];
+        for (var i = 0; i < data1.length; i++) {
+            var geoCoord = geoCoordMap[data1[i]];
+            if (geoCoord) {
+                res.push({
+                    name: data1[i],
+                    value: geoCoord.concat(data2[i])
+                });
             }
         }
         return res;
@@ -285,7 +301,7 @@
             backgroundColor: '#404a59',
             title: {
                 text: 'Order Analysis',
-                subtext: 'date in',
+                subtext: 'date in 2020-07-21',
                 left: 'center',
                 textStyle: {
                     color: '#fff'
@@ -298,14 +314,14 @@
                 orient: 'vertical',
                 top: 'bottom',
                 left: 'right',
-                data:['pm2.5'],
+                data:['total count'],
                 textStyle: {
                     color: '#fff'
                 }
             },
             visualMap: {
                 min: 0,
-                max: 300,
+                max: 10000,
                 splitNumber: 5,
                 color: ['#d94e5d','#eac736','#50a3ba'],
                 textStyle: {
@@ -331,8 +347,8 @@
             },
             series: [
                 {
-                    name: 'pm2.5',
-                    type: 'scatter',
+                    name: 'total count',
+                    type: 'effectScatter',
                     coordinateSystem: 'geo',
                     data: convertData(
                         data.data.cityNames, data.data.seriesData
@@ -341,13 +357,19 @@
                         value: 2
                     },
                     symbolSize: 12,
+                    showEffectOn: 'render',
+                    rippleEffect: {
+                        brushType: 'stroke'
+                    },
+                    hoverAnimation: true,
                     label: {
                         normal: {
                             show: false
                         },
                         emphasis: {
                             show: false
-                        }
+                        },
+                        show: true
                     },
                     itemStyle: {
                         emphasis: {
