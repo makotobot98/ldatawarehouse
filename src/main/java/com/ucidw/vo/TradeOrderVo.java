@@ -15,7 +15,7 @@ public class TradeOrderVo {
     private String categorytype;            // 商品分类类型（一级、二级）
     private String category1;               // 商品一级分类名称
     private String category2;             // 商品二级分类名称
-    private long totalcount;                // 订单数量
+    private String totalcount;                // 订单数量
     private long totalProductnum;          // 商品数量
     private double totalmoney;              // 支付金额
 }

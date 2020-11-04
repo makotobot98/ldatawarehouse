@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/dwh/trade")
@@ -25,8 +26,8 @@ public class TradeController {
      */
     @RequestMapping(value = "trade.do", method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse<List<TradeOrderVo>> countTradeData() {
-        ServerResponse<List<TradeOrderVo>> response = iTradeService.countTradeData();
+    public ServerResponse<Map<String, Object>> countTradeData() {
+        ServerResponse<Map<String, Object>> response = iTradeService.countTradeData();
         return response;
     }
 }
