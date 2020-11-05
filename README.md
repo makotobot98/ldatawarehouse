@@ -18,4 +18,4 @@
 - Database & query: **MyBatis** with **MySQL**
 - Visualization: **Echarts.js**
 
-<img src="rsrc/dw_logical_architecture2.png" style="zoom: 200%;" />
+<img src="rsrc/dw_logical_architecture.png" style="zoom: 50%;" />
