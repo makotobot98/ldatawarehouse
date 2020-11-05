@@ -1,5 +1,7 @@
 # E-Commerce Data Warehouse + Data Dashboard
 
+![](rsrc/visualization_demo.gif)
+
 - this is TODO
 
 ## Related Stacks and Frameworks
