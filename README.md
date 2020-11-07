@@ -14,6 +14,10 @@
   - some **bash scripts** needed to make the pipelines to work
 - `visualization` contains the java source code for data dashboard service using **SpringMVC, MyBatis, and Echarts**
 
+## Logical Architecture
+
+<img src="rsrc/dw_logical_architecture.png" style="zoom: 50%;" />
+
 ## Related Stacks and Frameworks
 
 ### Data Warehouse
@@ -29,5 +33,3 @@
 - Framework: **Spring MVC**
 - Database & query: **MyBatis** with **MySQL**
 - Visualization: **Echarts.js**
-
-<img src="rsrc/dw_logical_architecture.png" style="zoom: 50%;" />
