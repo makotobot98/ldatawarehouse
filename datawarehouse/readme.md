@@ -1,6 +1,23 @@
+# Table of content
+
+- Data Warehouse Modeling documentation(Hive, HDFS)
+- Data Sync Documentation(Flume, DataX)
+
 # Data Warehouse Modeling
 
-- TODO 
+Data Warehouse Modeling documentation is organized into type of matrices that we computed, there are mainly three categories of matrices: **User Category**, **Ad Category**, and **Order/Trade Category**
+
+## User Category
+
+![](../rsrc/dw_user_model.png)
+
+## Ad Category
+
+## Order/Trade Category
+
+
+
+- TODO
   - (ods, dwd, dim, dws, ads layer modeling)
 - 
 
@@ -28,6 +45,8 @@ Logs will be batch sync from log servers to the **HDFS** through **Flume agents*
   a1.sources.r1.interceptors.i1.type =
   com.ldw.flume.interceptor.LogTimeInterceptor$Builder
   ```
+
+
 
 ## Sync Transactional Data into HDFS - DataX
 
