@@ -13,13 +13,11 @@ Data Warehouse Modeling documentation is organized into type of matrices that we
 
 ## Ad Category
 
+![](../rsrc/dw_ad_model.png)
+
 ## Order/Trade Category
 
 
-
-- TODO
-  - (ods, dwd, dim, dws, ads layer modeling)
-- 
 
 # Data Import
 
