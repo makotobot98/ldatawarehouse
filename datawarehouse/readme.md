@@ -7,6 +7,10 @@
 
 Data Warehouse Modeling documentation is organized into type of matrices that we computed, there are mainly three categories of matrices: **User Category**, **Ad Category**, and **Order/Trade Category**
 
+## Order/Trade Category
+
+![](../rsrc/dw_order_model.png)
+
 ## User Category
 
 ![](../rsrc/dw_user_model.png)
@@ -15,7 +19,7 @@ Data Warehouse Modeling documentation is organized into type of matrices that we
 
 ![](../rsrc/dw_ad_model.png)
 
-## Order/Trade Category
+
 
 
 
