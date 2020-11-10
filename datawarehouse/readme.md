@@ -19,10 +19,6 @@ Data Warehouse Modeling documentation is organized into type of matrices that we
 
 ![](../rsrc/dw_ad_model.png)
 
-
-
-
-
 # Data Import
 
 ## Sync Start Log and Event Log to HDFS - Flume

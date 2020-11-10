@@ -1,6 +1,6 @@
 # Data Visualization
 
-
+![](../rsrc/visualization_archtecture.png)
 
 ## TODO
 
