@@ -48,5 +48,6 @@ Logs will be batch sync from log servers to the **HDFS** through **Flume agents*
 
 ## Sync Transactional Data into HDFS - DataX
 
-- TODO
+- we use **DataX** as a sync tool (scheduled daily) to transport data from the transactional databases(e.g., order tables) into HDFS time partitioned file location and will be interpreted as **hive external tables**
+- we also use **DataX** to transport the data from the ads hive tables into a remote MySQL database for data dashboard service component of the project
 
